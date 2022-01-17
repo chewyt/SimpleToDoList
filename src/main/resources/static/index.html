@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-center">
+
+    <div class="container">
+        <div class="row mt-3   mb-3  display-4 fst-italic">
+            <div class="col">
+                <div class="d-flex justify-content-center ">
+                    <h1 class="mt-1 mx-3">My To Do List</h1>
+                    <img src="/toDoList.png" alt="tick image" height="40px">
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/task" method="post">
+                    <div class="mb-2 input-group">
+                        <input type="text" class=" form-control" name="task" id="floating-input"
+                            placeholder="Please enter task">
+                        <input type="hidden" name="contents" data-th-value="${contents}">
+                        <input type="hidden" name="user" data-th-value="${user}">
+                        <button class="btn btn-primary" type="submit">
+                            Add Task
+                        </button>
+                        <button class="btn btn-success" type="submit" formaction="/task/record" method="post">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-2" >
+            <div class="col task">
+                <div id="dynamic content" class="col">
+                    <h5 data-th-if="${contents == null}">You very free hor??!</h5>
+                    <h5 data-th-if="${contents != null}">Task List</h5>
+                    <div class="tasks">
+                        <div th:each="test: ${tasks}">
+                            <h6 class="list-group" th:text=${test}> </h6>
+                            <h6 class="list-group" data-th-if="${savedTasks == null}">You do not have any tasks</h6>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+            <div class="col task">
+                <div id="dynamic content" class="col">
+                    <h5 data-th-if="${savedTasks != null}">Saved Task List</h5>
+                    <div class="tasks">
+                        <div th:each="test: ${savedTasks}">
+                            <h6 class="list-group" th:text=${test}>You do not have any tasks</h6>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>

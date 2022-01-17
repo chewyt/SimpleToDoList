@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="text-center">
+
+    <div class="container">
+        <div class="row mt-3   mb-3  display-4 fst-italic">
+            <div class="col">
+                <div class="d-flex justify-content-center ">
+                    <h1 class="mt-1 mx-3">My To Do List</h1>
+                    <img src="toDoList.png" alt="tick image" height="40px">
+                    </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/user" method="post">
+                    <div class="mt-5 mb-3 d-flex input-group">
+                        <input type="text" class=" form-control" name="user" id="floating-input"
+                            placeholder="Username">
+                        
+                        <button class="btn btn-primary w-25" type="submit">
+                            Login
+                        </button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>
